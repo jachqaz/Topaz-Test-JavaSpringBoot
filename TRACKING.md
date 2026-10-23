@@ -20,18 +20,24 @@ al frontend React Native. Mini-tienda de productos (prueba técnica fullstack).
 | # | Tarea | Estado |
 |---|-------|--------|
 | B0 | Scaffold en blanco (pom 3.4.13, main, test contexto) en `master` | FINISH |
-| B1 | Crear `.md` del agente (.kiro steering, prompt, este tracking) en `develop` | IN_PROGRESS |
-| B2 | pom: deps hexagonal (webflux/RestClient, validation, actuator, lombok, springdoc, jacoco) | TODO |
-| B3 | DOMAIN: modelo `Product`, puerto `ProductRepositoryPort` | TODO |
-| B4 | APPLICATION: casos de uso `GetProducts`, `GetProductById` | TODO |
-| B5 | INFRA out: adaptador DummyJSON (RestClient/WebClient) + mapeo DTO→dominio | TODO |
-| B6 | INFRA in/web: controllers REST `/api/products`, `/api/products/{id}` | TODO |
-| B7 | INFRA config: OpenAPI/Swagger, CORS, manejo global de errores | TODO |
-| B8 | TESTING: unit (casos de uso, mapeo) + integración (web) + JaCoCo ≥80% | TODO |
-| B9 | DOCS: README (rol director de orquesta) | TODO |
-| B10 | CI/CD: `.github/workflows/ci.yml` build+test+coverage, artefacto `.jar` | TODO |
-| B11 | Preprocesado commit (Spotless, headers, audit) | TODO |
-| B12 | Verificación final: build → test → build confirmación | TODO |
+| B1 | Crear `.md` del agente (.kiro steering, prompt, este tracking) en `develop` | FINISH |
+| B2 | pom: deps hexagonal (webflux/RestClient, validation, actuator, lombok, springdoc, jacoco) | FINISH |
+| B3 | DOMAIN: modelo `Product`, puerto `ProductRepositoryPort` | FINISH |
+| B4 | APPLICATION: casos de uso `GetProducts`, `GetProductById` | FINISH |
+| B5 | INFRA out: adaptador DummyJSON (RestClient/WebClient) + mapeo DTO→dominio | FINISH |
+| B6 | INFRA in/web: controllers REST `/api/products`, `/api/products/{id}` | FINISH |
+| B7 | INFRA config: OpenAPI/Swagger, CORS, manejo global de errores | FINISH |
+| B8 | TESTING: unit (casos de uso, mapeo) + integración (web) + JaCoCo ≥80% | FINISH |
+| B9 | DOCS: README (rol director de orquesta) | FINISH |
+| B10 | CI/CD: `.github/workflows/ci.yml` build+test+coverage, artefacto `.jar` | FINISH |
+| B11 | Preprocesado commit (Spotless, headers, audit) | IN_PROGRESS (headers de copyright aplicados; Spotless opcional pendiente) |
+| B12 | Verificación final: build → test → build confirmación | FINISH |
+
+## Verificación (evidencia real 2026-10-22)
+- `./mvnw clean verify` → **BUILD SUCCESS**. 13 tests, 0 fallos, 0 errores.
+- JaCoCo: "All coverage checks have been met" (gate ≥80%).
+- Artefacto: `target/topaz-products-api-0.0.1-SNAPSHOT.jar` generado.
+- WebClient a DummyJSON con baseURL configurable; 404 upstream → Optional.empty → 404 API.
 
 ## Decisiones
 - Spring Boot 3.4.13 (última patch 3.4; Initializr ya no la ofrece → scaffold a mano).
