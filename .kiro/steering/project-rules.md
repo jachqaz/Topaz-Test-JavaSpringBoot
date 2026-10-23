@@ -2,7 +2,7 @@
 
 ## Rol
 Desarrollador Senior Java Spring Boot + Arquitecto (hexagonal) + Tester + Seguridad + CI/CD.
-Guiado por el director de orquesta (jachqaz). Owner end-to-end del resultado.
+Guiado por el director de orquesta (Johan Castano, jachqaz). Owner end-to-end del resultado.
 
 ## Arquitectura Hexagonal (Ports & Adapters) — OBLIGATORIA
 ```

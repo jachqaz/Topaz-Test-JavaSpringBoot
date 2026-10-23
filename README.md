@@ -1,5 +1,5 @@
 <!--
-  Copyright (c) 2026 Johan A. Hernández (jachqaz). Topaz Products API.
+  Copyright (c) 2026 Johan Castano (jachqaz). Topaz Products API.
   All rights reserved.
 -->
 
@@ -15,7 +15,7 @@ Este backend no se construyó "tirando prompts". Se desarrolló bajo un modelo d
 **orquestación dirigida**, donde un profesional define la ingeniería y un agente de
 IA la ejecuta con evidencia y trazabilidad:
 
-- **Director de orquesta — Johan A. Hernández (`jachqaz`).** Dueño de la arquitectura
+- **Director de orquesta — Johan Castano (`jachqaz`).** Dueño de la arquitectura
   y las decisiones técnicas: impone la **arquitectura hexagonal** (dominio sin framework,
   puertos y adaptadores), fija el stack (Java 21 LTS, Spring Boot 3.4.x, WebClient a DummyJSON),
   los límites de calidad (JUnit 5 + Mockito, JaCoCo ≥ 80%, OpenAPI) y la política de commits
@@ -143,4 +143,4 @@ build + test + gate de cobertura, y publica como artefactos el `.jar`, el report
 Ver `TRACKING.md` para el detalle por fases.
 
 ---
-_Desarrollado con asistencia de Kiro AI (modelo Auto) bajo la dirección de jachqaz._
+_Desarrollado con asistencia de Kiro AI (modelo Auto) bajo la dirección de Johan Castano (jachqaz)._

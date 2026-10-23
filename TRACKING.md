@@ -1,11 +1,11 @@
 <!--
-  Copyright (c) 2026 Johan A. Hernández (jachqaz). Topaz Products API.
+  Copyright (c) 2026 Johan Castano (jachqaz). Topaz Products API.
   All rights reserved.
 -->
 
 # TRACKING.md — Topaz Products API (Backend)
 
-**Director de orquesta:** jachqaz (`jach_1997@hotmail.com`) · **Agente:** Kiro (Auto), guiado por el director.
+**Director de orquesta:** Johan Castano (jachqaz) (`jach_1997@hotmail.com`) · **Agente:** Kiro (Auto), guiado por el director.
 **Repo:** https://github.com/jachqaz/Topaz-Test-JavaSpringBoot.git · **Rama de trabajo:** `develop`
 **Stack:** Java 21 LTS · Spring Boot 3.4.13 · Maven · Arquitectura Hexagonal (Ports & Adapters).
 
@@ -49,6 +49,14 @@ al frontend React Native. Mini-tienda de productos (prueba técnica fullstack).
   director: arquitectura hexagonal, decisiones, calidad, validación por evidencia).
 - CI `ci.yml` revisado: **se deja como está** — refleja el build real (`mvnw clean verify -B`, Java 21
   Temurin, caché Maven, gate JaCoCo ≥80%, publica `.jar` + jacoco + surefire). No requiere cambios.
+
+### Documentación 2026-10-23 — nombre del director
+- Reemplazo en la documentación: `Johan A. Hernández (jachqaz)` → `Johan Castano (jachqaz)`;
+  menciones de `jachqaz` como autoría → `Johan Castano (jachqaz)`. **No** se tocaron las URLs de
+  GitHub ni la config `user.name = jachqaz` (identidad real de git).
+  Archivos del repo: `README.md` (3), `TRACKING.md` (2), `.kiro/steering/project-rules.md` (1).
+- **Rutina adoptada:** tras cada cambio → commit firmado (`-s`, sin push) con preproceso +
+  actualización de este `.md` de seguimiento.
 - Verificación pre-commit: `mvnw verify` BUILD SUCCESS, 13 tests, 0 fallos.
 | B10 | CI/CD: `.github/workflows/ci.yml` build+test+coverage, artefacto `.jar` | FINISH |
 | B11 | Preprocesado commit (Spotless, headers, audit) | IN_PROGRESS (headers de copyright aplicados; Spotless opcional pendiente) |
