@@ -11,9 +11,10 @@ Mini-tienda de productos (prueba técnica fullstack).
 
 ## Modelo de trabajo: orquestación humano + agente
 
-Este backend no se construyó "tirando prompts". Se desarrolló bajo un modelo de
-**orquestación dirigida**, donde un profesional define la ingeniería y un agente de
-IA la ejecuta con evidencia y trazabilidad:
+Este backend se construyó bajo un modelo de **orquestación dirigida de IA**, donde un
+profesional define la ingeniería y un agente de IA la ejecuta con evidencia y trazabilidad.
+No se trata de generación automática sin control, sino de un proceso de desarrollo
+supervisado en el que cada decisión técnica es dirigida, verificada y documentada:
 
 - **Director de orquesta — Johan Castano (`jachqaz`).** Dueño de la arquitectura
   y las decisiones técnicas: impone la **arquitectura hexagonal** (dominio sin framework,
@@ -25,10 +26,11 @@ IA la ejecuta con evidencia y trazabilidad:
   accionable: implementa las capas, escribe los tests, mide la cobertura y verifica el contrato
   real contra DummyJSON, reportando con datos. Trabaja guiado, dentro de las decisiones del director.
 
-El valor está en la **dirección especializada**: diseñar la arquitectura correcta, acotar el
-alcance, exigir cobertura y causa raíz, y validar el resultado. El agente acelera la ejecución;
-el criterio de ingeniería y la responsabilidad del resultado son del director. La trazabilidad
-de cada decisión vive en `TRACKING.md`.
+El valor reside en la **dirección técnica especializada**: el diseño de la arquitectura,
+la delimitación del alcance, la exigencia de cobertura y análisis de causa raíz, y la
+validación del resultado. El agente acelera la ejecución; el criterio de ingeniería y la
+responsabilidad del resultado corresponden al director. La trazabilidad de cada decisión
+se documenta en `TRACKING.md`.
 
 ## Stack
 

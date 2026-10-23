@@ -57,6 +57,11 @@ al frontend React Native. Mini-tienda de productos (prueba técnica fullstack).
   Archivos del repo: `README.md` (3), `TRACKING.md` (2), `.kiro/steering/project-rules.md` (1).
 - **Rutina adoptada:** tras cada cambio → commit firmado (`-s`, sin push) con preproceso +
   actualización de este `.md` de seguimiento.
+
+### Documentación 2026-10-23 (2) — redacción profesional del README
+- Reemplazada la expresión informal "tirando prompts" por una redacción profesional equivalente
+  ("orquestación dirigida de IA... proceso de desarrollo supervisado") y pulidas frases coloquiales
+  de la sección de orquestación. Tono y contenido preservados.
 - Verificación pre-commit: `mvnw verify` BUILD SUCCESS, 13 tests, 0 fallos.
 | B10 | CI/CD: `.github/workflows/ci.yml` build+test+coverage, artefacto `.jar` | FINISH |
 | B11 | Preprocesado commit (Spotless, headers, audit) | IN_PROGRESS (headers de copyright aplicados; Spotless opcional pendiente) |
