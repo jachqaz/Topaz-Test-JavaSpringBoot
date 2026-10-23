@@ -9,10 +9,26 @@ Microservicio **BFF** (Backend For Frontend) que consume la API pública
 [DummyJSON](https://dummyjson.com/) y expone los productos al frontend React Native **Topaz**.
 Mini-tienda de productos (prueba técnica fullstack).
 
-## Roles del proyecto
+## Modelo de trabajo: orquestación humano + agente
 
-- **Director de orquesta:** Johan A. Hernández (`jachqaz`) — define objetivos, arquitectura y prioridades.
-- **Agente de desarrollo:** Kiro (modelo Auto) — ejecuta guiado por el director, con evidencia y trazabilidad.
+Este backend no se construyó "tirando prompts". Se desarrolló bajo un modelo de
+**orquestación dirigida**, donde un profesional define la ingeniería y un agente de
+IA la ejecuta con evidencia y trazabilidad:
+
+- **Director de orquesta — Johan A. Hernández (`jachqaz`).** Dueño de la arquitectura
+  y las decisiones técnicas: impone la **arquitectura hexagonal** (dominio sin framework,
+  puertos y adaptadores), fija el stack (Java 21 LTS, Spring Boot 3.4.x, WebClient a DummyJSON),
+  los límites de calidad (JUnit 5 + Mockito, JaCoCo ≥ 80%, OpenAPI) y la política de commits
+  (firmados, con preprocesado, sin push automático). Valida cada entrega contra evidencia real
+  (`mvnw verify`, cobertura, respuestas HTTP).
+- **Agente ejecutor — Kiro (modelo Auto).** Traduce la intención del director en trabajo
+  accionable: implementa las capas, escribe los tests, mide la cobertura y verifica el contrato
+  real contra DummyJSON, reportando con datos. Trabaja guiado, dentro de las decisiones del director.
+
+El valor está en la **dirección especializada**: diseñar la arquitectura correcta, acotar el
+alcance, exigir cobertura y causa raíz, y validar el resultado. El agente acelera la ejecución;
+el criterio de ingeniería y la responsabilidad del resultado son del director. La trazabilidad
+de cada decisión vive en `TRACKING.md`.
 
 ## Stack
 
@@ -54,23 +70,33 @@ el dominio no conoce Spring ni DummyJSON.
 
 ## Prerrequisitos
 
-- Java 21 (JDK)
-- (Opcional) `vfox use java@21`
+- **JDK 21** (Temurin/Zulu) con `JAVA_HOME` apuntando a él. Verifícalo con `java -version`.
+- No necesitas instalar Maven: el proyecto incluye el **Maven Wrapper** (`mvnw` / `mvnw.cmd`).
 
-## Ejecución
-
-```bash
-./mvnw spring-boot:run        # http://localhost:8080
-```
-
-Ejemplos:
+## Clonado y ejecución desde cero
 
 ```bash
-curl http://localhost:8080/api/products
-curl http://localhost:8080/api/products/1
+git clone https://github.com/jachqaz/Topaz-Test-JavaSpringBoot.git
+cd Topaz-Test-JavaSpringBoot
+
+# Unix / macOS:
+./mvnw spring-boot:run          # arranca en http://localhost:8080
+
+# Windows (PowerShell / CMD):
+mvnw.cmd spring-boot:run
 ```
 
-Documentación OpenAPI: `http://localhost:8080/swagger-ui.html`
+El backend queda escuchando en el **puerto 8080** (fijo). Compruébalo:
+
+```bash
+curl http://localhost:8080/api/products       # lista de 30 productos (JSON)
+curl http://localhost:8080/api/products/1      # detalle del producto 1
+curl http://localhost:8080/actuator/health     # {"status":"UP"}
+```
+
+Documentación OpenAPI interactiva: `http://localhost:8080/swagger-ui.html`
+
+> Déjalo corriendo mientras usas el frontend: el front espera el back en `localhost:8080`.
 
 ## Configuración
 

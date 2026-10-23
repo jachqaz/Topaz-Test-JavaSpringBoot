@@ -35,6 +35,21 @@ al frontend React Native. Mini-tienda de productos (prueba técnica fullstack).
 - `server.port=8080` fijo en `application.properties` (el `adb reverse` del front lo asume).
 - Verificado en vivo: `GET /api/products` → 200 con 30 productos; cadena DummyJSON→back confirmada.
 - README: tabla de configuración con el puerto y sección de integración con el front.
+
+### Diagnóstico de conexión 2026-10-23
+- Para diagnosticar "no llegan consultas al back" se habilitó temporalmente logging DEBUG del
+  `DispatcherServlet` + `spring.mvc.log-request-details`. Evidencia: la cadena nunca estuvo rota
+  (back vivo en 8080, CORS `*`, 30 productos, device con `adb reverse` activo). Era falta de
+  observabilidad en el front (Axios sin logs), no de conectividad.
+- El logging temporal se **retiró** de `application.properties` tras validar. No se tocó logging funcional.
+- README actualizado con clonado desde cero (JDK 21, Maven Wrapper, verificación con `curl`).
+
+### READMEs y CI 2026-10-23
+- README: nueva sección "Modelo de trabajo: orquestación humano + agente" (valor del perfil del
+  director: arquitectura hexagonal, decisiones, calidad, validación por evidencia).
+- CI `ci.yml` revisado: **se deja como está** — refleja el build real (`mvnw clean verify -B`, Java 21
+  Temurin, caché Maven, gate JaCoCo ≥80%, publica `.jar` + jacoco + surefire). No requiere cambios.
+- Verificación pre-commit: `mvnw verify` BUILD SUCCESS, 13 tests, 0 fallos.
 | B10 | CI/CD: `.github/workflows/ci.yml` build+test+coverage, artefacto `.jar` | FINISH |
 | B11 | Preprocesado commit (Spotless, headers, audit) | IN_PROGRESS (headers de copyright aplicados; Spotless opcional pendiente) |
 | B12 | Verificación final: build → test → build confirmación | FINISH |
