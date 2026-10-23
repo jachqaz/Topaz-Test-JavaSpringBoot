@@ -76,7 +76,21 @@ Documentación OpenAPI: `http://localhost:8080/swagger-ui.html`
 
 | Propiedad | Valor por defecto | Descripción |
 |-----------|-------------------|-------------|
+| `server.port` | `8080` | Puerto fijo del backend (lo asume el `adb reverse` del front) |
 | `dummyjson.base-url` | `https://dummyjson.com` | Origen de datos externo |
+
+## Integración con el frontend
+
+El frontend React Native consume este backend en `http://localhost:8080/api`.
+Para un device/emulador Android, el front mapea el puerto con:
+
+```bash
+adb reverse tcp:8080 tcp:8080    # el localhost:8080 del teléfono → este backend
+```
+
+Flujo de datos: **DummyJSON → este backend (BFF) → frontend**. Ver el README del
+front para el detalle. El backend puede exponerse también por túnel (p. ej.
+Cloudflare) para pruebas sin USB; es un camino opcional, no el principal.
 
 ## Testing
 

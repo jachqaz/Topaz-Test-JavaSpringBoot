@@ -29,6 +29,12 @@ al frontend React Native. Mini-tienda de productos (prueba técnica fullstack).
 | B7 | INFRA config: OpenAPI/Swagger, CORS, manejo global de errores | FINISH |
 | B8 | TESTING: unit (casos de uso, mapeo) + integración (web) + JaCoCo ≥80% | FINISH |
 | B9 | DOCS: README (rol director de orquesta) | FINISH |
+| C1 | Integración: `server.port=8080` fijo + README (adb reverse, flujo dummyjson→back→front) | FINISH |
+
+### Correcciones 2026-10-22 (integración front/back)
+- `server.port=8080` fijo en `application.properties` (el `adb reverse` del front lo asume).
+- Verificado en vivo: `GET /api/products` → 200 con 30 productos; cadena DummyJSON→back confirmada.
+- README: tabla de configuración con el puerto y sección de integración con el front.
 | B10 | CI/CD: `.github/workflows/ci.yml` build+test+coverage, artefacto `.jar` | FINISH |
 | B11 | Preprocesado commit (Spotless, headers, audit) | IN_PROGRESS (headers de copyright aplicados; Spotless opcional pendiente) |
 | B12 | Verificación final: build → test → build confirmación | FINISH |
